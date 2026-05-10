@@ -14,6 +14,16 @@ const Wrapper = styled.div`
   padding: 10px;
 `;
 
+const Warning = styled.div`
+  background-color: #f6e3b3;
+  color: #433103;
+  padding: 4px 16px;
+  border-color: #433103;
+  border-radius: 8px;
+  max-width: 800px;
+  font-weight: bold;
+`;
+
 export const Game: React.FC = () => {
   const { gameId } = useParams();
   const navigate = useNavigate();
@@ -62,6 +72,14 @@ export const Game: React.FC = () => {
         {game.name} ({gameId})
       </h2>
       <p>Game info last updated {lastUpdated} ago</p>
+      <Warning>
+        <p>
+          The new moderation tool is now ready to be used as the main queue
+          tool. Please use this website only if the other one does not work and
+          a backup is required. Ask @franck if you need the link or to register.
+        </p>
+      </Warning>
+
       <Queue gameDoc={gameDoc} />
     </Wrapper>
   );
